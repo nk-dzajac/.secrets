@@ -6,7 +6,8 @@ if ! ./decrypt.sh id_ed25519.enc; then
     exit 1
 fi
 
-sudo install -o $USER -g $USER -m 0644 id_ed25519.pub ~/.ssh
-sudo install -o $USER -g $USER -m 0600 id_ed25519 ~/.ssh
+mkdir -p $HOME/.ssh
+sudo install -o $USER -g $USER -m 0644 id_ed25519.pub $HOME/.ssh
+sudo install -o $USER -g $USER -m 0600 id_ed25519 $HOME/.ssh
 
 rm ./id_ed25519
